@@ -12,7 +12,7 @@ function ContactForm() {
           className="max-w-2xl mx-auto text-center mb-12"
         >
           <h2 className="text-4xl font-bold mb-4">
-            GET IN <span className="text-[#fbca01]">TOUCH</span>
+          <span className='text-[#ffffff]'>GET IN</span>   <span className="text-[#fbca01]">TOUCH</span>
           </h2>
         </motion.div>
 
@@ -26,7 +26,7 @@ function ContactForm() {
             id="contact-form"
             name="contact_form"
             className="space-y-6"
-            action="https://api.web3forms.com/submit"
+            action="https://www.sutlejindustrialcorp.com"
             method="POST"
           >
             <div>

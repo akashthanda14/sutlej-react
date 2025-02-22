@@ -154,20 +154,20 @@ export default function HeroSection() {
                   className="block"
                   variants={contentVariants}
                 >
-                  Premium Quality
+                  Generator Wheels
                 </motion.span>
                 <motion.span 
                   className="block text-[#FBCA00]"
                   variants={contentVariants}
                 >
-                  Valve Guides & Components
+                  Valve Guides & Sewing Machine Bushes
                 </motion.span>
               </motion.h1>
               <motion.p 
                 className="text-xl sm:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto"
                 variants={contentVariants}
               >
-                Specialized in manufacturing high-precision valve guides, generator wheels, and sewing machine bushes.
+                Supplying across all districts of Punjab, we ensure durability, reliability, and superior performance in every product.
               </motion.p>
               <motion.div
                 className="flex flex-col sm:flex-row gap-4 justify-center"

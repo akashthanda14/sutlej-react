@@ -132,7 +132,7 @@ function OurProcess() {
             >
               <img
                 className="w-full h-auto rounded-lg shadow-xl"
-                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=400"
+                src="https://i.ibb.co/gZ1fg4Q9/Untitled-500-x-500-px.png"
                 alt="Founder"
               />
               <div className="absolute inset-0 rounded-lg border-2 border-[#fbca01]/20"></div>

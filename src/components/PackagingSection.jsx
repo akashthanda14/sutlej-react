@@ -61,10 +61,7 @@ const PackagingSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center max-w-2xl mx-auto mb-12"
         >
-          <h1 className="text-5xl font-bold text-white mb-2">Packaging</h1>
-          <h2 className="text-3xl font-bold mb-6">
-            Premium <span style={{ color: 'rgb(251, 202, 1)' }}>Packaging</span>
-          </h2>
+          <h3 className="text-5xl font-bold text-white mb-2 py-2"> <span>Premium </span><span style={{ color: 'rgb(251, 202, 1)' }}>Packaging</span></h3>
           <p className="text-gray-300">
             Sutlej Industrial Corporation carefully selects high-quality materials, 
             then casts or forges valve guides and generator wheels. Precision machining, 

@@ -1,43 +1,24 @@
-import { useState } from 'react'
-import './App.css'
-import Header from './components/Header'
-import HeroSection from './components/Hero'
-// import AboutCompany from './components/AboutCompany'
-import  ProductCard from './components/ProductCard'
-import WhyChooseUs from './components/WhyChooseUs'
-import OurProcess from './components/OurProcess'
-import ContactForm from './components/ContactForm'
-import CounterSection from './components/CounterSection'
-import PackagingSection from './components/PackagingSection'
-import Footer from './components/Footer'
-
-// import Header from './components/Header'
+import { Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import ContactUs from "./pages/ContactUs";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Products from "./pages/Products";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div className="min-h-screen bg-gray-100">
-     <div className="App">
+    <div className="min-h-screen bg-gray-100 ">
       <Header />
-      <HeroSection/>
-      {/* <AboutCompany/> */}
-      <ProductCard />
-      <WhyChooseUs/>
-      <div className="min-h-screen bg-[#0a1825] text-white">
-      <OurProcess />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/products" element={<Products />} />
+      </Routes>
+      <Footer />
     </div>
-      <ContactForm/>
-      <CounterSection/>
-      <PackagingSection/>
-      <Footer/>
-
-      {/* Other components can go here */}
-    </div>
-    </div>
-    </>
-  )
+  );
 }
 
-export default App
+export default App;
