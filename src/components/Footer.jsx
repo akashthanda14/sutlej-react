@@ -51,7 +51,7 @@ const Footer = () => {
             className="space-y-8"
           >
             <motion.img
-              src="https://placehold.co/200x60?text=Logo"
+              src="https://i.ibb.co/ymBMYrB9/logo.png"
               alt="Sutlej Industrial Corporation"
               className="h-16"
               initial={{ opacity: 0 }}
