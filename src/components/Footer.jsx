@@ -53,7 +53,7 @@ const Footer = () => {
             <motion.img
               src="https://i.ibb.co/ymBMYrB9/logo.png"
               alt="Sutlej Industrial Corporation"
-              className="h-16"
+              className="h-20"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
