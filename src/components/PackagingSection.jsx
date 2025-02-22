@@ -27,16 +27,28 @@ const PackageItem = ({ image, title }) => {
 const PackagingSection = () => {
   const packages = [
     {
-      image: "/src/images/gallery/pack2.png",
+      image: "https://i.ibb.co/C5DQzCNJ/packaging.jpg",
       title: "Premium Packaging"
     },
     {
-      image: "/src/images/gallery/pack3.png",
-      title: "Premium Packaging"
+      image: "https://i.ibb.co/SXR7pzF3/pack2.png",
+      title: "Eco-Friendly Solutions"
     },
     {
-      image: "/src/images/gallery/pack4.png",
-      title: "Premium Packaging"
+      image: "https://i.ibb.co/8D8jdRJ6/pack3.png",
+      title: "Industrial Grade"
+    },
+    {
+      image: "https://i.ibb.co/2YZt4MPy/pack4.png",
+      title: "Quality Control"
+    },
+    {
+      image: "https://i.ibb.co/ZzhhsgZq/pack5.png",
+      title: "Secure Packaging"
+    },
+    {
+      image: "https://i.ibb.co/PZMsRHc8/pack6.png",
+      title: "Advanced Solutions"
     }
   ];
 

@@ -48,7 +48,7 @@ function App() {
               </div>
               <div className="flex items-center text-gray-300 hover:text-[#FBCA00] transition-colors">
                 <PhoneCall className="w-4 h-4 mr-2" />
-                <span className="text-sm">+91 99994 3678</span>
+                <span className="text-sm">+91 99993 63465</span>
               </div>
               <div className="flex items-center text-gray-300 hover:text-[#FBCA00] transition-colors">
                 <MapPin className="w-4 h-4 mr-2" />
@@ -76,7 +76,11 @@ function App() {
           <div className="flex justify-between items-center">
             {/* Logo */}
             <a href="/" className="flex-shrink-0">
-              <img src="/src/images/logo/logo.svg" alt="Logo" className="h-16" />
+              <img
+                src="https://i.ibb.co/ymBMYrB9/logo.png"
+                alt="Logo"
+                className="h-16"
+              />
             </a>
 
             {/* Desktop Navigation */}

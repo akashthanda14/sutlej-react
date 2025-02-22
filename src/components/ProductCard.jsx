@@ -1,75 +1,91 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, ChevronDown } from 'lucide-react';
+import { useInView } from 'react-intersection-observer';
 
 function ProductCard() {
   const [expandedId, setExpandedId] = React.useState(null);
+  const { ref, inView } = useInView({
+    threshold: 0.1,
+    triggerOnce: true,
+  });
 
   const products = [
     {
       id: 1,
-      image: "/src/images/gallery/products/08.png",
-      title: "Wheel Bush",
-      description: "The Sewing Machine Wheel Bush reduces friction, ensure smooth hand wheel rotation.",
-      fullDescription: "The Sewing Machine Wheel Bush reduces friction, ensure smooth hand wheel rotation Made from durable materials. Our wheel bushes are precision-engineered to provide optimal performance and longevity."
+      image: "https://i.ibb.co/vC1Y4WHW/wheel.jpg" ,
+      title: "Generator Wheel",
+      description: "The Generator Wheel is designed for both air and water-cooled generators.",
+      fullDescription: "The Generator Wheel is designed for both air and water-cooled generators, ensuring smooth operation and reliable performance. Built with premium materials for extended service life and optimal efficiency."
+      
     },
     {
       id: 2,
-      image: "/src/images/gallery/products/09.png",
+      image: "https://i.ibb.co/xtbcRz13/shambush.png",
       title: "Sham Bush",
       description: "The Sham Bush reduces friction and ensures smooth hand wheel rotation.",
       fullDescription: "The Sham Bush reduces friction and ensures smooth hand wheel rotation, made from durable materials for long-lasting performance. Each bush is carefully manufactured to meet strict quality standards."
     },
     {
       id: 3,
-      image: "/src/images/gallery/products/010.png",
+      image: "https://i.ibb.co/7N0NFFgr/kneckbush.png",
       title: "Kneck Bush",
       description: "A sewing machine neck bush supports the needle bar, allowing smooth vertical movement during sewing.",
       fullDescription: "A sewing machine neck bush supports the needle bar, allowing smooth vertical movement during sewing. It connects the needle mechanism to the machine's body. Our neck bushes are designed for precision and durability."
     },
     {
       id: 4,
-      image: "/src/images/gallery/products/wheek.png",
+      image: "https://i.ibb.co/Wv8cmN1g/valve.png",
       title: "Valve Guide",
       description: "The Valve Guide ensures proper valve alignment and smooth movement.",
       fullDescription: "The Valve Guide ensures proper valve alignment and smooth movement, reducing wear and maintaining engine performance. Made from durable materials for long-lasting use. Our valve guides are engineered to precise specifications."
     },
     {
       id: 5,
-      image: "/src/images/gallery/products/valve.png",
-      title: "Valve Guide Pro",
+      image: "https://i.ibb.co/xtk69PGN/valve-Guide1.png" ,
+      title: "Valve Guide",
       description: "Advanced Valve Guide for professional applications and heavy-duty use.",
       fullDescription: "Advanced Valve Guide designed for professional applications and heavy-duty use. Features enhanced durability and precision engineering for optimal performance in demanding environments."
     },
     {
       id: 6,
-      image: "/src/images/gallery/products/wheek.png",
-      title: "Generator Wheel",
-      description: "The Generator Wheel is designed for both air and water-cooled generators.",
-      fullDescription: "The Generator Wheel is designed for both air and water-cooled generators, ensuring smooth operation and reliable performance. Built with premium materials for extended service life and optimal efficiency."
+      image: "https://i.ibb.co/rGS2gRY5/wheelbush.png" ,
+      title: "Wheel Bush",
+      description: "The Sewing Machine Wheel Bush reduces friction, ensure smooth hand wheel rotation.",
+      fullDescription: "The Sewing Machine Wheel Bush reduces friction, ensure smooth hand wheel rotation Made from durable materials. Our wheel bushes are precision-engineered to provide optimal performance and longevity."
+     
     }
   ];
 
   return (
-    <section className="relative min-h-screen bg-[#0a1a27] overflow-hidden py-16">
+    <section ref={ref} className="relative min-h-screen bg-[#0a1a27] overflow-hidden py-16">
       <div className="absolute inset-0 bg-[#0a1a27]"></div>
       <div className="relative z-10 container mx-auto px-4">
         <motion.h2 
           className="text-4xl md:text-5xl font-bold text-white mb-12 text-center"
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
         >
           Our Products
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product) => (
+          {products.map((product, index) => (
             <motion.div 
               key={product.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: product.id * 0.1 }}
+              initial={{ opacity: 0, y: 50 }}
+              animate={inView ? { 
+                opacity: 1, 
+                y: 0,
+                transition: { 
+                  duration: 0.5, 
+                  delay: index * 0.1 
+                }
+              } : {
+                opacity: 0,
+                y: 50
+              }}
               className="bg-white/5 backdrop-blur-xl rounded-2xl overflow-hidden border border-white/10 hover:border-white/20 transition-colors"
             >
               <motion.div 
@@ -89,8 +105,8 @@ function ProductCard() {
                 <motion.h3 
                   className="text-xl font-semibold text-white mb-3"
                   initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.2 }}
+                  animate={inView ? { opacity: 1 } : { opacity: 0 }}
+                  transition={{ delay: 0.2 + index * 0.1 }}
                 >
                   {product.title}
                 </motion.h3>

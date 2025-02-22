@@ -18,6 +18,7 @@ function App() {
 
   return (
     <>
+      <div className="min-h-screen bg-gray-100">
      <div className="App">
       <Header />
       <HeroSection/>
@@ -33,6 +34,7 @@ function App() {
       <Footer/>
 
       {/* Other components can go here */}
+    </div>
     </div>
     </>
   )

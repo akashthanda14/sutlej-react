@@ -120,7 +120,7 @@ function OurProcess() {
               whileHover="hover"
               className="mb-8 bg-[#10263a]/30 p-6 rounded-lg backdrop-blur-sm border border-white/10 hover:border-[#fbca01]/30 transition-colors"
             >
-              <h3 className="text-xl font-semibold text-white">Late shri Mr Bhandari</h3>
+              <h3 className="text-xl font-semibold text-white">Late Mr Anil Bhandari</h3>
               <h6 className="text-[#fbca01] font-medium mt-1">Founder (1986)</h6>
             </motion.div>
 
