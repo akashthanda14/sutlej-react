@@ -115,7 +115,7 @@ function Header() {
               <a href="/" className="text-white hover:text-[#FBCA00] transition-colors">Home</a>
               <a href="/about" className="text-white hover:text-[#FBCA00] transition-colors">About Us</a>
               <a href="/products" className="text-white hover:text-[#FBCA00] transition-colors">Products</a>
-              <a href="/contactus" className="text-white hover:text-[#FBCA00] transition-colors">Contact Us</a>
+              <a href="/contactUs" className="text-white hover:text-[#FBCA00] transition-colors">Contact Us</a>
               <a
                 href="tel:+919999363465"
                 className="bg-[#FBCA00] text-[#071726] px-6 py-2 rounded-full font-medium hover:bg-[#EECA1D] transition-colors"
