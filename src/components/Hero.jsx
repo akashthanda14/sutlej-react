@@ -4,7 +4,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const images = [
   {
-    url: "/src/images/gallery/products/claudio-schwarz-E6O183wB5zc-unsplash.jpg",
+    url: "https://i.ibb.co/C3x8KqxG/claudio-schwarz-E6-O183w-B5zc-unsplash.jpg",
+    
     alt: "Industrial manufacturing facility with modern machinery",
   },
   {
