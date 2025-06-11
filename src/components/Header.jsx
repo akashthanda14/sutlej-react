@@ -1,6 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Anchor, PhoneCall, MapPin, Facebook, Twitter, Linkedin, Dribbble } from "lucide-react";
+import { Link } from 'react-router-dom';
+import {
+  Menu,
+  X,
+  Anchor,
+  PhoneCall,
+  MapPin,
+  Facebook,
+  Twitter,
+  Linkedin,
+  Dribbble
+} from 'lucide-react';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,31 +25,18 @@ function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
+    document.body.style.overflow = isOpen ? 'hidden' : 'unset';
   }, [isOpen]);
 
   const menuVariants = {
     closed: {
-      x: "100%",
-      transition: {
-        type: "spring",
-        stiffness: 400,
-        damping: 40
-      }
+      x: '100%',
+      transition: { type: 'spring', stiffness: 400, damping: 40 }
     },
     open: {
-      x: "0%",
-      transition: {
-        type: "spring",
-        stiffness: 400,
-        damping: 40
-      }
+      x: '0%',
+      transition: { type: 'spring', stiffness: 400, damping: 40 }
     }
   };
 
@@ -48,18 +46,8 @@ function Header() {
   };
 
   const containerVariants = {
-    open: {
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    },
-    closed: {
-      transition: {
-        staggerChildren: 0.05,
-        staggerDirection: -1
-      }
-    }
+    open: { transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
+    closed: { transition: { staggerChildren: 0.05, staggerDirection: -1 } }
   };
 
   return (
@@ -84,11 +72,7 @@ function Header() {
             </div>
             <div className="flex space-x-4">
               {[Facebook, Twitter, Linkedin, Dribbble].map((Icon, index) => (
-                <a
-                  key={index}
-                  href="#"
-                  className="text-gray-400 hover:text-[#FBCA00] transition-colors"
-                >
+                <a key={index} href="#" className="text-gray-400 hover:text-[#FBCA00] transition-colors">
                   <Icon className="w-5 h-5" />
                 </a>
               ))}
@@ -102,20 +86,16 @@ function Header() {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
             {/* Logo */}
-            <a href="/" className="flex-shrink-0">
-              <img
-                src="https://i.ibb.co/ymBMYrB9/logo.png"
-                alt="Logo"
-                className="h-20"
-              />
-            </a>
+            <Link to="/" className="flex-shrink-0">
+              <img src="https://i.ibb.co/ymBMYrB9/logo.png" alt="Logo" className="h-20" />
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-8">
-              <a href="/" className="text-white hover:text-[#FBCA00] transition-colors">Home</a>
-              <a href="/about" className="text-white hover:text-[#FBCA00] transition-colors">About Us</a>
-              <a href="/products" className="text-white hover:text-[#FBCA00] transition-colors">Products</a>
-              <a href="/contactUs" className="text-white hover:text-[#FBCA00] transition-colors">Contact Us</a>
+              <Link to="/" className="text-white hover:text-[#FBCA00] transition-colors">Home</Link>
+              <Link to="/about" className="text-white hover:text-[#FBCA00] transition-colors">About Us</Link>
+              <Link to="/products" className="text-white hover:text-[#FBCA00] transition-colors">Products</Link>
+              <Link to="/contactUs" className="text-white hover:text-[#FBCA00] transition-colors">Contact Us</Link>
               <a
                 href="tel:+919999363465"
                 className="bg-[#FBCA00] text-[#071726] px-6 py-2 rounded-full font-medium hover:bg-[#EECA1D] transition-colors"
@@ -125,10 +105,7 @@ function Header() {
             </div>
 
             {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden text-white focus:outline-none z-50"
-            >
+            <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden text-white focus:outline-none z-50">
               <AnimatePresence mode="wait">
                 {isOpen ? (
                   <motion.div
@@ -170,7 +147,7 @@ function Header() {
               className="fixed inset-0 bg-black/50 backdrop-blur-sm lg:hidden"
               onClick={() => setIsOpen(false)}
             />
-            
+
             {/* Menu */}
             <motion.div
               variants={menuVariants}
@@ -189,16 +166,21 @@ function Header() {
                 <div className="p-6 space-y-6">
                   {/* Mobile Navigation Links */}
                   <motion.div className="space-y-4" variants={containerVariants}>
-                    {['Home', 'About Us', 'Products', 'Contact Us'].map((item, index) => (
-                      <motion.a
-                        key={index}
-                        href={`/${item.toLowerCase().replace(' ', '-')}`}
-                        className="block text-lg text-white hover:text-[#FBCA00] transition-colors"
-                        variants={menuItemVariants}
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {item}
-                      </motion.a>
+                    {[
+                      { name: 'Home', path: '/' },
+                      { name: 'About Us', path: '/about' },
+                      { name: 'Products', path: '/products' },
+                      { name: 'Contact Us', path: '/contactUs' }
+                    ].map(({ name, path }, index) => (
+                      <motion.div variants={menuItemVariants} key={index}>
+                        <Link
+                          to={path}
+                          onClick={() => setIsOpen(false)}
+                          className="block text-lg text-white hover:text-[#FBCA00] transition-colors"
+                        >
+                          {name}
+                        </Link>
+                      </motion.div>
                     ))}
                   </motion.div>
 
@@ -216,11 +198,7 @@ function Header() {
                   <motion.div variants={menuItemVariants} className="pt-6 border-t border-white/10">
                     <div className="flex justify-center space-x-6">
                       {[Facebook, Twitter, Linkedin, Dribbble].map((Icon, index) => (
-                        <a
-                          key={index}
-                          href="#"
-                          className="text-gray-400 hover:text-[#FBCA00] transition-colors"
-                        >
+                        <a key={index} href="#" className="text-gray-400 hover:text-[#FBCA00] transition-colors">
                           <Icon className="w-5 h-5" />
                         </a>
                       ))}
