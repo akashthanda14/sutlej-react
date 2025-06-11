@@ -8,13 +8,13 @@ import Products from "./pages/Products";
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100 ">
+    <div className="min-h-screen bg-gray-100">
       <Header />
       <Routes>
-        <Route path="https://www.sutlejindustrialcorp.com/" element={<Home />} />
-        <Route path="https://www.sutlejindustrialcorp.com/about" element={<About />} />
-        <Route path="https://www.sutlejindustrialcorp.com/contactus" element={<ContactUs />} />
-        <Route path="https://www.sutlejindustrialcorp.com/products" element={<Products />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contactus" element={<ContactUs />} />
+        <Route path="/products" element={<Products />} />
       </Routes>
       <Footer />
     </div>
